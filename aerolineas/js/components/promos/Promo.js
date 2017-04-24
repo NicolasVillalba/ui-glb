@@ -1,6 +1,6 @@
 /**
  * Promo class: This class is in charge to manage the attributes for a Promo
- * This class is the same as a pojo in JAVA, C#, etc
+ * This class is the same as a pojo in JAVA, a poco in C#, etc
  * This class must not have binding to the UI
  * The view or UI component use this to store data, manage state, etc.
  * @param {object} attributes 
@@ -21,7 +21,9 @@ Promo.prototype.get = function(attribute) {
  * default setter
  */
 Promo.prototype.set = function(attribute, value) {
-    this.attributes[attribute] = value;
+    if(this.attributes.hasOwnProperty(attribute)){
+        this.attributes[attribute] = value || '';   
+    }
 }
 
 /**

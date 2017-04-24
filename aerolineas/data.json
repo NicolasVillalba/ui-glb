@@ -1,0 +1,76 @@
+{
+   "videos":[
+      {
+         "id":1,
+         "capture":"path/to/image.jp",
+         "duration":"3:45",
+         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
+         "visualizations":"187.182",
+         "uploaded":"hace 2 dias",
+         "user":{
+            "name":"Hecatombe Producciones",
+            "profile":"link/to/profile/hecatombe-producciones"
+         }
+      },
+      {
+         "id":2,
+         "capture":"path/to/image.jp",
+         "duration":"3:45",
+         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
+         "visualizations":"187.182",
+         "uploaded":"hace 2 dias",
+         "user":{
+            "name":"Hecatombe Producciones",
+            "profile":"link/to/profile/hecatombe-producciones"
+         }
+      },
+      {
+         "id":3,
+         "capture":"path/to/image.jp",
+         "duration":"3:45",
+         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
+         "visualizations":"187.182",
+         "uploaded":"hace 2 dias",
+         "user":{
+            "name":"Hecatombe Producciones",
+            "profile":"link/to/profile/hecatombe-producciones"
+         }
+      },
+      {
+         "id":4,
+         "capture":"path/to/image.jp",
+         "duration":"3:45",
+         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
+         "visualizations":"187.182",
+         "uploaded":"hace 2 dias",
+         "user":{
+            "name":"Hecatombe Producciones",
+            "profile":"link/to/profile/hecatombe-producciones"
+         }
+      },
+      {
+         "id":5,
+         "capture":"path/to/image.jp",
+         "duration":"3:45",
+         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
+         "visualizations":"187.182",
+         "uploaded":"hace 2 dias",
+         "user":{
+            "name":"Hecatombe Producciones",
+            "profile":"link/to/profile/hecatombe-producciones"
+         }
+      },
+      {
+         "id":6,
+         "capture":"path/to/image.jp",
+         "duration":"3:45",
+         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
+         "visualizations":"187.182",
+         "uploaded":"hace 2 dias",
+         "user":{
+            "name":"Hecatombe Producciones",
+            "profile":"link/to/profile/hecatombe-producciones"
+         }
+      }
+   ]
+}
