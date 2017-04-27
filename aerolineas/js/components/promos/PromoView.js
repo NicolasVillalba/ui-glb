@@ -9,21 +9,9 @@
 var PromoView = function(attributes) {
     this.attributes = attributes;
     this.$el = document.querySelector(attributes.el);
-}
+};
 
-/**
- * default getter
- */
-PromoView.prototype.get = function(attribute) {
-    return this.attributes[attribute];
-}
-
-/**
- * default setter
- */
-PromoView.prototype.set = function(attribute, value) {
-    this.attributes[attribute] = value;
-}
+PromoView.prototype = GenericModel.prototype;
 
 /**
  * This method is an example about calling a metho with apply in a constructor
@@ -31,7 +19,7 @@ PromoView.prototype.set = function(attribute, value) {
  */
 Promo.prototype.initialize = function() {
     console.log("initializing View Promo with data", arguments);
-}
+};
 
 /**
  * Render method,
@@ -41,14 +29,16 @@ Promo.prototype.initialize = function() {
 PromoView.prototype.render = function() {
     var container = document.createElement('div');
     container.innerHTML = this.template();
-    this.$el.append(container.firstChild);
-}
+    this.$el.appendChild(container.firstChild);
+};
 
 /**
  * Builds a tamplate layout, attaching model to its container 
  */
 PromoView.prototype.template = function() {
-    return '<div><div>' + this.get("model").get("origin") + ' </div><div>' +
-        this.get("model").get("destination") + ' </div><div>' +
-        this.get("model").get("price") + ' </div></div>';
-}
+    return `<div>
+                <div>${this.get("model").get("origin")} </div>
+                <div>${this.get("model").get("destination")}</div></div>
+                <span>${this.get("model").get("price")}</span>
+            </div>`;
+};

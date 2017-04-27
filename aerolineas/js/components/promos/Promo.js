@@ -8,27 +8,13 @@
 var Promo = function(attributes) {
     this.attributes = attributes;
     this.initialize.apply(this, arguments);
-}
+};
 
-/**
- * default getter
- */
-Promo.prototype.get = function(attribute) {
-    return this.attributes[attribute];
-}
-
-/**
- * default setter
- */
-Promo.prototype.set = function(attribute, value) {
-    if(this.attributes.hasOwnProperty(attribute)){
-        this.attributes[attribute] = value || '';   
-    }
-}
+Promo.prototype = GenericModel.prototype;
 
 /**
  * This method is an example about calling a metho with apply in a constructor
  */
 Promo.prototype.initialize = function() {
     console.log("initializing model Promo with data", arguments);
-}
+};
