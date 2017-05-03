@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="js/components/GenericModel.js"></script>
+    <script src="js/components/video/Video.js"></script>
     <script src="js/components/video/VideoCards.js"></script>
     <script src="js/components/promos/Promo.js"></script>
 </head>
@@ -19,7 +20,7 @@
                 "videos":[
                     {
                         "id":1,
-                        "capture":"path/to/image.jp",
+                        "capture":"http://lorempixel.com/200/100?1",
                         "duration":"3:45",
                         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
                         "visualizations":"187.182",
@@ -31,7 +32,7 @@
                     },
                     {
                         "id":1,
-                        "capture":"path/to/image.jp",
+                        "capture":"http://lorempixel.com/200/100?2",
                         "duration":"3:45",
                         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
                         "visualizations":"187.182",
@@ -43,7 +44,7 @@
                     },
                     {
                         "id":1,
-                        "capture":"path/to/image.jp",
+                        "capture":"http://lorempixel.com/200/100?3",
                         "duration":"3:45",
                         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
                         "visualizations":"187.182",
@@ -55,7 +56,7 @@
                     },
                     {
                         "id":1,
-                        "capture":"path/to/image.jp",
+                        "capture":"http://lorempixel.com/200/100?4",
                         "duration":"3:45",
                         "title":"VIDA SALVAJE: El Humano de Boliche | HECATOMBE!",
                         "visualizations":"187.182",
@@ -66,15 +67,13 @@
                         }
                     }
                 ]
-    }
+    };
 
     let videosList = new VideoCards({
         el: '#video-list',
-        model: videos
+        model: new Video(videos)
     });
 
     videosList.render();
-
-    console.log(videosList.toString());
 </script>
 </html>

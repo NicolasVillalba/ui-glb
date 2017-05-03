@@ -1,8 +1,7 @@
 /**
  * Created by nico on 26/04/17.
  */
-let GenericModel = function (attributes) {
-    this.attrs = attributes;
+let GenericModel = function () {
 };
 
 GenericModel.prototype = {
@@ -11,14 +10,14 @@ GenericModel.prototype = {
      * Setter method
      */
     get: function(attribute) {
-        return this.attrs[attribute];
+        return this.attributes[attribute];
     },
 
     /**
      * Getter method
      */
     set: function(attribute, value) {
-        this.attrs[attribute] = value || '';
+        this.attributes[attribute] = value || '';
     },
 
     /**
@@ -27,8 +26,8 @@ GenericModel.prototype = {
      */
     toString: function () {
         let result = '';
-        for(let attributes in this.attrs){
-            result += this.attrs[attributes];
+        for(let attributes in this.attributes){
+            result += this.attributes[attributes];
         }
         return result;
     }

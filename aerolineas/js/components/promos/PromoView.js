@@ -7,11 +7,9 @@
  * @param {object} attributes 
  */
 var PromoView = function(attributes) {
-    this.attributes = attributes;
+    this.model = attributes.model;
     this.$el = document.querySelector(attributes.el);
 };
-
-PromoView.prototype = GenericModel.prototype;
 
 /**
  * This method is an example about calling a metho with apply in a constructor
@@ -28,17 +26,26 @@ Promo.prototype.initialize = function() {
  */
 PromoView.prototype.render = function() {
     var container = document.createElement('div');
+    container.setAttribute('class', this.model.get('image')?'promo-content':'short-promo-content promo-content')
     container.innerHTML = this.template();
-    this.$el.appendChild(container.firstChild);
+    this.$el.appendChild(container);
 };
+
+let promoLayout = `
+        ${this.model.get('image')?'<div class="cols left md-6 promo-image"><img src="img/neuquen.gif" alt="Imagen el Calafate" /></div>':''}
+        <div class="${this.model.get('image')?'cols left md-6 promo-info':'short-promo-content promo-content'}">
+            <span class="promo-origin">${this.model.get('origin')}</span>
+            <h2 class="aa-color promo-title promo-destination">${this.model.get('destination')}</h2>
+            ${this.model.get('destination')?'<p class="promo-description"> Volá a Neuquén y comprá con la mejor financiación con más de 30 bancos.</p>':''}
+            <span class="promo-purchase-title">Tarifa:</span>
+            <span class="aa-color promo-price">${this.model.get('price')}</span>
+            <a class="aa-color promo-purchase" href="${this.model.get('payment')}">Comprar</a>
+        </div>
+`;
 
 /**
  * Builds a tamplate layout, attaching model to its container 
  */
 PromoView.prototype.template = function() {
-    return `<div>
-                <div>${this.get("model").get("origin")} </div>
-                <div>${this.get("model").get("destination")}</div></div>
-                <span>${this.get("model").get("price")}</span>
-            </div>`;
+    return promoLayout;
 };
