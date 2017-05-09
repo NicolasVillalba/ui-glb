@@ -3,7 +3,7 @@
  * This class is the same as a pojo in JAVA, a poco in C#, etc
  * This class must not have binding to the UI
  * The view or UI component use this to store data, manage state, etc.
- * @param {object} attributes 
+ * @param {object} attributes
  */
 var Promo = function(attributes) {
     this.attributes = attributes;
@@ -16,5 +16,5 @@ Promo.prototype = GenericModel.prototype;
  * This method is an example about calling a metho with apply in a constructor
  */
 Promo.prototype.initialize = function() {
-    console.log("initializing model Promo with data", arguments);
+    //console.log("initializing model Promo with data", arguments);
 };

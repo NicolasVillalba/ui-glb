@@ -1,6 +1,6 @@
 /**
  * PromoView class
- * Handles Rendering, events and differents stuff of a UI Component
+ * Handles Rendering, events and different stuff of a UI Component
  * This class is the glue between a model and the DOM
  * This class should only manage user interactions, and updates a model, 
  * without applying business logic
@@ -16,7 +16,7 @@ var PromoView = function(attributes) {
  * In this case, we can use it as a event binding.
  */
 Promo.prototype.initialize = function() {
-    console.log("initializing View Promo with data", arguments);
+    //console.log("initializing View Promo with data", arguments);
 };
 
 /**
@@ -31,21 +31,32 @@ PromoView.prototype.render = function() {
     this.$el.appendChild(container);
 };
 
-let promoLayout = `
-        ${this.model.get('image')?'<div class="cols left md-6 promo-image"><img src="img/neuquen.gif" alt="Imagen el Calafate" /></div>':''}
-        <div class="${this.model.get('image')?'cols left md-6 promo-info':'short-promo-content promo-content'}">
-            <span class="promo-origin">${this.model.get('origin')}</span>
-            <h2 class="aa-color promo-title promo-destination">${this.model.get('destination')}</h2>
-            ${this.model.get('destination')?'<p class="promo-description"> Volá a Neuquén y comprá con la mejor financiación con más de 30 bancos.</p>':''}
-            <span class="promo-purchase-title">Tarifa:</span>
-            <span class="aa-color promo-price">${this.model.get('price')}</span>
-            <a class="aa-color promo-purchase" href="${this.model.get('payment')}">Comprar</a>
-        </div>
-`;
-
 /**
  * Builds a tamplate layout, attaching model to its container 
  */
 PromoView.prototype.template = function() {
+
+    let image =       this.model.get('image');
+    let destination = this.model.get('destination');
+    let description = this.model.get('description');
+    let price =       this.model.get('price');
+    let payment =     this.model.get('payment');
+
+    /*let promoLayout = `
+        ${this.model.get('image')?'<div class="cols left md-6 promo-image"><img src="img/neuquen.gif" alt="Imagen el Calafate" /></div>':''}
+        <div class="${this.model.get('image')?'cols left md-6 promo-info':'short-promo-content promo-content'}">
+            <span class="promo-origin">${this.model.get('origin')}</span>
+            <h2 class="aa-color promo-title promo-destination">${this.model.get('destination')}</h2>
+            ${this.model.get('image')?`<p class="promo-description"> ${this.model.get('description')}</p>`:''}
+            <span class="promo-purchase-title">Tarifa:</span>
+            <span class="aa-color promo-price">${this.model.get('price')}</span>
+            <a class="aa-color promo-purchase" href="${this.model.get('payment')}">Comprar</a>
+        </div>
+`;*/
+
+    let promoLayout = Template('./js/components/promos/templates/promo.tpl')
+        .then((tpl) => tpl)
+        .catch((e) => console.log('Error'));
+
     return promoLayout;
 };

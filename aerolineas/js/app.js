@@ -3,7 +3,7 @@
 //This the data I will fill the model
 var promo = {
     "image":"img/calafate.jpg",
-    "desciption": "Llegá volando a El Calafate. Más rápido, más cómodo, más cuotas.",
+    "description": "Llegá volando a El Calafate. Más rápido, más cómodo, más cuotas.",
     "origin": "Buenos Aires",
     "destination": "El Calafate",
     "price": 1200,
