@@ -15,48 +15,41 @@ var PromoView = function(attributes) {
  * This method is an example about calling a metho with apply in a constructor
  * In this case, we can use it as a event binding.
  */
-Promo.prototype.initialize = function() {
-    //console.log("initializing View Promo with data", arguments);
+PromoView.prototype.initialize = function() {
+    console.log("initializing View PromoView with data", arguments);
 };
 
 /**
- * Render method,
- * given a template, renders a Component content
+ * Render method, given a template, renders a Component content
  * This can be as complex as you want
  */
 PromoView.prototype.render = function() {
-    var container = document.createElement('div');
-    container.setAttribute('class', this.model.get('image')?'promo-content':'short-promo-content promo-content')
-    container.innerHTML = this.template();
-    this.$el.appendChild(container);
+
+    this.$el.appendChild(this.template());
+
 };
 
 /**
- * Builds a tamplate layout, attaching model to its container 
+ * Builds a template from layout, attaching model to its container
  */
 PromoView.prototype.template = function() {
 
-    let image =       this.model.get('image');
-    let destination = this.model.get('destination');
-    let description = this.model.get('description');
-    let price =       this.model.get('price');
-    let payment =     this.model.get('payment');
+    let data = {};
 
-    /*let promoLayout = `
-        ${this.model.get('image')?'<div class="cols left md-6 promo-image"><img src="img/neuquen.gif" alt="Imagen el Calafate" /></div>':''}
-        <div class="${this.model.get('image')?'cols left md-6 promo-info':'short-promo-content promo-content'}">
-            <span class="promo-origin">${this.model.get('origin')}</span>
-            <h2 class="aa-color promo-title promo-destination">${this.model.get('destination')}</h2>
-            ${this.model.get('image')?`<p class="promo-description"> ${this.model.get('description')}</p>`:''}
-            <span class="promo-purchase-title">Tarifa:</span>
-            <span class="aa-color promo-price">${this.model.get('price')}</span>
-            <a class="aa-color promo-purchase" href="${this.model.get('payment')}">Comprar</a>
-        </div>
-`;*/
+    for(let field in this.model.attributes){
+        data[field] = this.model.attributes[field];
+    }
 
-    let promoLayout = Template('./js/components/promos/templates/promo.tpl')
-        .then((tpl) => tpl)
-        .catch((e) => console.log('Error'));
+    let container = document.createElement('div');
 
-    return promoLayout;
+    container.setAttribute('class', data.image ?'promo-content':'short-promo-content promo-content');
+
+    LoadTemplate(data.image ? './js/components/promos/layouts/promo.tpl' : './js/components/promos/layouts/short-promo.tpl')
+        .then((tpl) => tpl.replace(/{{ (.*?) }}/g, function(match, token) {
+            return data[token];
+        }))
+        .then((tpl) => container.innerHTML = tpl)
+        .catch((error) => console.log(error));
+
+    return container;
 };

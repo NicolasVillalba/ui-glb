@@ -1,8 +1,8 @@
 /**
  * Created by nico on 09/05/17.
  */
-function Template(url) {
-    return new Promise((success, reject) => {
+function LoadTemplate(url) {
+    return new Promise((resolve, reject) => {
 
         let rq = new XMLHttpRequest();
 
@@ -10,7 +10,7 @@ function Template(url) {
 
         rq.onload = function () {
             if(rq.status == 200)
-                success(rq.response);
+                resolve(rq.response);
             else
                 reject("Error loading page\n");
         };

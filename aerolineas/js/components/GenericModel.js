@@ -1,6 +1,8 @@
 /**
  * Created by nico on 26/04/17.
  */
+
+
 let GenericModel = function () {
 };
 

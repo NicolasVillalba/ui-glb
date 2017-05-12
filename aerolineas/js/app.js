@@ -12,6 +12,15 @@ var promo = {
     "currencySymbol": "$"
 };
 
+var shortpromo = {
+    "origin": "Buenos Aires",
+    "destination": "El Calafate",
+    "price": 1200,
+    "payment":"/es-ar/reservasservicios/vuelo/139_buenos-aires-mar-del-plata",
+    "currency": "ARS",
+    "currencySymbol": "$"
+};
+
 // Creating view to render
 var promoView = new PromoView({
     el: '#promos',
