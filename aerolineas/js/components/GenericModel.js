@@ -3,7 +3,7 @@
  */
 
 
-let GenericModel = function () {
+export let GenericModel = function () {
 };
 
 GenericModel.prototype = {
@@ -29,7 +29,7 @@ GenericModel.prototype = {
     toString: function () {
         let result = '';
         for(let attributes in this.attributes){
-            result += this.attributes[attributes];
+            result += String(this.attributes[attributes]);
         }
         return result;
     }

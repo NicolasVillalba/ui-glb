@@ -1,3 +1,4 @@
+import { LoadTemplate } from '../../load-template';
 /**
  * PromoView class
  * Handles Rendering, events and different stuff of a UI Component
@@ -6,7 +7,7 @@
  * without applying business logic
  * @param {object} attributes 
  */
-var PromoView = function(attributes) {
+export let PromoView = function(attributes) {
     this.model = attributes.model;
     this.$el = document.querySelector(attributes.el);
 };

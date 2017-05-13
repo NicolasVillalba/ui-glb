@@ -2,6 +2,7 @@
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+.idea
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -15,3 +16,9 @@
 # Gradle:
 .idea/**/gradle.xml
 .idea/**/libraries
+
+# Node Modules
+node_modules/**
+npm-debug.log
+#proyect
+build

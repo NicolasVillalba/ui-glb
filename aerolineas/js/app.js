@@ -1,5 +1,9 @@
 //app.js
 
+//imports ES6
+import { Promo } from './components/promos/Promo';
+import { PromoView } from './components/promos/PromoView';
+
 //This the data I will fill the model
 var promo = {
     "image":"img/calafate.jpg",

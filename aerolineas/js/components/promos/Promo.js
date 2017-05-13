@@ -1,3 +1,4 @@
+import { GenericModel } from '../GenericModel';
 /**
  * Promo class: This class is in charge to manage the attributes for a Promo
  * This class is the same as a pojo in JAVA, a poco in C#, etc
@@ -5,7 +6,7 @@
  * The view or UI component use this to store data, manage state, etc.
  * @param {object} attributes
  */
-var Promo = function(attributes) {
+export var Promo = function(attributes) {
     this.attributes = attributes;
     this.initialize.apply(this, arguments);
 };

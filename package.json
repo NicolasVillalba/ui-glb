@@ -1,0 +1,34 @@
+{
+  "name": "gbl-ui-training",
+  "version": "1.0.0",
+  "description": "js components development and asset bundling",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "webpack": "webpack --watch --progress --colors"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasVillalba/ui-glb.git"
+  },
+  "keywords": [
+    "js",
+    "modules",
+    "promises",
+    "webpack"
+  ],
+  "author": "Nicolas Villalba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasVillalba/ui-glb/issues"
+  },
+  "homepage": "https://github.com/NicolasVillalba/ui-glb#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "webpack": "^2.5.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0"
+  }
+}

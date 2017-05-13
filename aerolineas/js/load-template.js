@@ -1,7 +1,7 @@
 /**
  * Created by nico on 09/05/17.
  */
-function LoadTemplate(url) {
+export function LoadTemplate(url) {
     return new Promise((resolve, reject) => {
 
         let rq = new XMLHttpRequest();
