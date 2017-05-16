@@ -22,3 +22,6 @@ node_modules/**
 npm-debug.log
 #proyect
 build
+
+aerolineas/js/app-bundle.js
+aerolineas/js/app-bundle.js.map

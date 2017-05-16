@@ -2,7 +2,6 @@
  * Created by nico on 15/05/17.
  */
 
-
 import  { GenericModel } from '../../../../aerolineas/js/components/GenericModel';
 
 describe('Generic Model test', () =>{

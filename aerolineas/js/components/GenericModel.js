@@ -2,7 +2,6 @@
  * Created by nico on 26/04/17.
  */
 
-
 export let GenericModel = function () {
 };
 

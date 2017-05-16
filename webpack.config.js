@@ -14,7 +14,24 @@ const config = {
                 test: /\.js$/,
                 use: [{
                     loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            ['es2015', { modules: false }]
+                        ],
+                        env: {
+                            test: {
+                                presets: ["es2015"]
+                            }
+                        }
+                    }
                 }]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
             }
         ]
     },

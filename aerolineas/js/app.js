@@ -1,6 +1,4 @@
-//app.js
-
-//imports ES6
+//ES6 imports
 import { Promo } from './components/promos/Promo';
 import { PromoView } from './components/promos/PromoView';
 
@@ -28,7 +26,7 @@ var shortpromo = {
 // Creating view to render
 var promoView = new PromoView({
     el: '#promos',
-    model: new Promo(promo)
+    model: new Promo(shortpromo)
 });
 
 //As I set attributes to the view I just render its content

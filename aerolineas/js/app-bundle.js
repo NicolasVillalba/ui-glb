@@ -68,40 +68,52 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Promo; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__GenericModel__ = __webpack_require__(3);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Promo = undefined;
+
+var _GenericModel = __webpack_require__(3);
 
 /**
- * Promo class: This class is in charge to manage the attributes for a Promo
+ * promos class: This class is in charge to manage the attributes for a promos
  * This class is the same as a pojo in JAVA, a poco in C#, etc
  * This class must not have binding to the UI
  * The view or UI component use this to store data, manage state, etc.
  * @param {object} attributes
  */
-var Promo = function (attributes) {
+var Promo = exports.Promo = function Promo(attributes) {
   this.attributes = attributes;
   this.initialize.apply(this, arguments);
 };
 
-Promo.prototype = __WEBPACK_IMPORTED_MODULE_0__GenericModel__["a" /* GenericModel */].prototype;
+Promo.prototype = _GenericModel.GenericModel.prototype;
 
 /**
  * This method is an example about calling a metho with apply in a constructor
  */
 Promo.prototype.initialize = function () {
-  //console.log("initializing model Promo with data", arguments);
+  //console.log("initializing model promos with data", arguments);
 };
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PromoView; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__load_template__ = __webpack_require__(4);
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.PromoView = undefined;
+
+var _loadTemplate = __webpack_require__(4);
 
 /**
  * PromoView class
@@ -111,7 +123,7 @@ Promo.prototype.initialize = function () {
  * without applying business logic
  * @param {object} attributes 
  */
-let PromoView = function (attributes) {
+var PromoView = exports.PromoView = function PromoView(attributes) {
     this.model = attributes.model;
     this.$el = document.querySelector(attributes.el);
 };
@@ -138,38 +150,42 @@ PromoView.prototype.render = function () {
  */
 PromoView.prototype.template = function () {
 
-    let data = {};
+    var data = {};
 
-    for (let field in this.model.attributes) {
+    for (var field in this.model.attributes) {
         data[field] = this.model.attributes[field];
     }
 
-    let container = document.createElement('div');
+    var container = document.createElement('div');
 
     container.setAttribute('class', data.image ? 'promo-content' : 'short-promo-content promo-content');
 
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__load_template__["a" /* LoadTemplate */])(data.image ? './js/components/promos/layouts/promo.tpl' : './js/components/promos/layouts/short-promo.tpl').then(tpl => tpl.replace(/{{ (.*?) }}/g, function (match, token) {
-        return data[token];
-    })).then(tpl => container.innerHTML = tpl).catch(error => console.log(error));
+    (0, _loadTemplate.LoadTemplate)(data.image ? './js/components/promos/layouts/promo.tpl' : './js/components/promos/layouts/short-promo.tpl').then(function (tpl) {
+        return tpl.replace(/{{ (.*?) }}/g, function (match, token) {
+            return data[token];
+        });
+    }).then(function (tpl) {
+        return container.innerHTML = tpl;
+    }).catch(function (error) {
+        return console.log(error);
+    });
 
     return container;
 };
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_promos_Promo__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_promos_PromoView__ = __webpack_require__(1);
-//app.js
-
-//imports ES6
 
 
+var _Promo = __webpack_require__(0);
+
+var _PromoView = __webpack_require__(1);
 
 //This the data I will fill the model
+//ES6 imports
 var promo = {
     "image": "img/calafate.jpg",
     "description": "Llegá volando a El Calafate. Más rápido, más cómodo, más cuotas.",
@@ -191,9 +207,9 @@ var shortpromo = {
 };
 
 // Creating view to render
-var promoView = new __WEBPACK_IMPORTED_MODULE_1__components_promos_PromoView__["a" /* PromoView */]({
+var promoView = new _PromoView.PromoView({
     el: '#promos',
-    model: new __WEBPACK_IMPORTED_MODULE_0__components_promos_Promo__["a" /* Promo */](promo)
+    model: new _Promo.Promo(shortpromo)
 });
 
 //As I set attributes to the view I just render its content
@@ -201,29 +217,33 @@ promoView.render();
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GenericModel; });
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 /**
  * Created by nico on 26/04/17.
  */
 
-let GenericModel = function () {};
+var GenericModel = exports.GenericModel = function GenericModel() {};
 
 GenericModel.prototype = {
 
     /**
      * Setter method
      */
-    get: function (attribute) {
+    get: function get(attribute) {
         return this.attributes[attribute];
     },
 
     /**
      * Getter method
      */
-    set: function (attribute, value) {
+    set: function set(attribute, value) {
         this.attributes[attribute] = value || '';
     },
 
@@ -231,9 +251,9 @@ GenericModel.prototype = {
      * To String method
      * @returns {string}
      */
-    toString: function () {
-        let result = '';
-        for (let attributes in this.attributes) {
+    toString: function toString() {
+        var result = '';
+        for (var attributes in this.attributes) {
             result += String(this.attributes[attributes]);
         }
         return result;
@@ -243,17 +263,22 @@ GenericModel.prototype = {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = LoadTemplate;
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.LoadTemplate = LoadTemplate;
 /**
  * Created by nico on 09/05/17.
  */
 function LoadTemplate(url) {
-    return new Promise((resolve, reject) => {
+    return new Promise(function (resolve, reject) {
 
-        let rq = new XMLHttpRequest();
+        var rq = new XMLHttpRequest();
 
         rq.open('get', url, true);
 

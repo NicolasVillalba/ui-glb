@@ -1,5 +1,3 @@
-import '../../../css/promo.css'
-import '../../../css/body.css'
 import { LoadTemplate } from '../../load-template';
 /**
  * PromoView class
