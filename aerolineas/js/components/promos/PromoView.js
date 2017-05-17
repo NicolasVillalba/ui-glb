@@ -25,20 +25,27 @@ PromoView.prototype.initialize = function() {
  * This can be as complex as you want
  */
 PromoView.prototype.render = function() {
+    console.log(typeof this.model);
+    if(this.model instanceof Array){
 
-    this.$el.appendChild(this.template());
+        this.model.forEach((e) => {
+            this.$el.appendChild(this.template(e));
+        })
+    }else {
+        this.$el.appendChild(this.template(this.model));
+    }
 
 };
 
 /**
  * Builds a template from layout, attaching model to its container
  */
-PromoView.prototype.template = function() {
+PromoView.prototype.template = function(model) {
 
     let data = {};
 
-    for(let field in this.model.attributes){
-        data[field] = this.model.attributes[field];
+    for(let field in model.attributes){
+        data[field] = model.attributes[field];
     }
 
     let container = document.createElement('div');

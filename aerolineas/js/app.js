@@ -26,7 +26,7 @@ var shortpromo = {
 // Creating view to render
 var promoView = new PromoView({
     el: '#promos',
-    model: new Promo(shortpromo)
+    model: [new Promo(promo), new Promo(promo)]
 });
 
 //As I set attributes to the view I just render its content

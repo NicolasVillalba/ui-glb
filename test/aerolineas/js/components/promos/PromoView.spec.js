@@ -16,12 +16,20 @@ var promo = {
 };
 
 describe('promos object creation and property manipulation', () => {
+
     let promoView = new PromoView({
         model: new Promo(promo),
         el: '#test'
     });
-    it('should contain a div element', () => {
-        let el = document.createElement('div');
-        expect(typeof promoView.template()).toBe(typeof el)
+    it('should create a div element with with className promo-content', () => {
+
+        let templateResult = promoView.template(promoView.model);
+
+        expect(templateResult instanceof Node).toBe(true);
+
+        expect(templateResult.tagName).toBe('DIV');
+
+        expect(templateResult.className).toBe('promo-content');
+
     })
 });

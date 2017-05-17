@@ -113,6 +113,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PromoView = undefined;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _loadTemplate = __webpack_require__(4);
 
 /**
@@ -141,19 +143,28 @@ PromoView.prototype.initialize = function () {
  * This can be as complex as you want
  */
 PromoView.prototype.render = function () {
+    var _this = this;
 
-    this.$el.appendChild(this.template());
+    console.log(_typeof(this.model));
+    if (this.model instanceof Array) {
+
+        this.model.forEach(function (e) {
+            _this.$el.appendChild(_this.template(e));
+        });
+    } else {
+        this.$el.appendChild(this.template(this.model));
+    }
 };
 
 /**
  * Builds a template from layout, attaching model to its container
  */
-PromoView.prototype.template = function () {
+PromoView.prototype.template = function (model) {
 
     var data = {};
 
-    for (var field in this.model.attributes) {
-        data[field] = this.model.attributes[field];
+    for (var field in model.attributes) {
+        data[field] = model.attributes[field];
     }
 
     var container = document.createElement('div');
@@ -209,7 +220,7 @@ var shortpromo = {
 // Creating view to render
 var promoView = new _PromoView.PromoView({
     el: '#promos',
-    model: new _Promo.Promo(shortpromo)
+    model: [new _Promo.Promo(shortpromo), new _Promo.Promo(promo)]
 });
 
 //As I set attributes to the view I just render its content
